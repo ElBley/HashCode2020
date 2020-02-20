@@ -70,9 +70,32 @@ public class Container {
     
     public String toString(){
         StringBuilder toret = new StringBuilder();
-        for(int i = 0; i<listaBibliotecas.size();i++){
-            toret.append(listaBibliotecas.get(i).id).append(": ").append(listaBibliotecas.get(i).maxPoints).append("\n");
+        int acumulador = this.ndays;
+        
+        int diaSuma = 0;
+        int nBibl = 0;
+        for( nBibl = 0; nBibl<listaBibliotecas.size() && diaSuma < this.ndays;nBibl++){
+            diaSuma += listaBibliotecas.get(nBibl).signUpTime;
         }
+        if(diaSuma > this.ndays){
+            nBibl--;
+        }
+        toret.append(nBibl).append("\n");
+        
+        for(int  i= 0; i<nBibl; i++){
+            acumulador -= this.listaBibliotecas.get(i).signUpTime;
+            toret.append(this.listaBibliotecas.get(i).id).append(" ");
+            long nLibros =  this.listaBibliotecas.get(i).librosEnviar(acumulador);
+            toret.append(nLibros).append("\n");
+            
+            
+           for(int j=0;j<nLibros;j++){
+               toret.append(this.listaBibliotecas.get(i).books.get(j).id).append(" ");
+           }
+           toret.append("\n");
+        }
+        
+        
         return toret.toString();
     }
     

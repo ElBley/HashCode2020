@@ -7,6 +7,7 @@ package hashcode2020;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.math.*;
 
 /**
  *
@@ -32,7 +33,7 @@ public class Library {
 
         int maxLibros = (maxDays - signUpTime) * nBooksDay;
 
-        this.quickSort(0, books.size()-1);
+        this.quickSort(0, books.size() - 1);
 
         int j = 0;
         int maxScore = 0;
@@ -75,4 +76,7 @@ public class Library {
         return start;
     }
 
+    public Long librosEnviar(int diasUtiles) {
+        return Math.min((long) diasUtiles * this.nBooksDay, this.books.size());
+    }
 }

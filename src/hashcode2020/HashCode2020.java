@@ -28,7 +28,7 @@ public class HashCode2020 {
             
             
             File fichero = new File(args[0]);
-            File ficheroSalida = new File("Salida.out");
+            File ficheroSalida = new File("c.out");
 
             fw = new FileWriter(ficheroSalida);
             salida = new PrintWriter(fw);
@@ -81,12 +81,11 @@ public class HashCode2020 {
            
            Container master = new Container(listaBibliotecas,puntuacionLibros,nDias);
            
-            System.out.println(master.toString());
            
            
            
             
-            salida.print("texto de ejemplo \n");
+            salida.print(master.toString());
             
             
 
