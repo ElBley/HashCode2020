@@ -81,6 +81,8 @@ public class HashCode2020 {
            
            Container master = new Container(listaBibliotecas,puntuacionLibros,nDias);
            
+            System.out.println(master.toString());
+           
            
            
             

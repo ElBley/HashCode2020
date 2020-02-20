@@ -22,6 +22,7 @@ public class Container {
 
     public Container(ArrayList<Library> listaBibliotecas, ArrayList<Book> listaLibrosTotales, int ndays) {
         this.listaBibliotecas = listaBibliotecas;
+        quickSort(this.listaBibliotecas,0,this.listaBibliotecas.size()-1);
         this.listaLibrosTotales = listaLibrosTotales;
         this.ndays = ndays;
         this.listaLibrosEnviados = new ArrayList<Boolean>(listaLibrosTotales.size());
@@ -65,6 +66,14 @@ public class Container {
         arr.set(end, temp);
  
         return start;
+    }
+    
+    public String toString(){
+        StringBuilder toret = new StringBuilder();
+        for(int i = 0; i<listaBibliotecas.size();i++){
+            toret.append(listaBibliotecas.get(i).id).append(": ").append(listaBibliotecas.get(i).maxPoints).append("\n");
+        }
+        return toret.toString();
     }
     
 }
