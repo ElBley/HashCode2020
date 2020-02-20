@@ -60,7 +60,7 @@ public class Library {
         Book pivot = books.get(end);
 
         for (int i = start; i < end; i++) {
-            if (books.get(i).score < pivot.score) {
+            if (books.get(i).score > pivot.score) {
                 Book temp = books.get(start);
                 books.set(start, books.get(i));
                 books.set(i, temp);

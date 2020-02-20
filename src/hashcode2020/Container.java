@@ -53,7 +53,7 @@ public class Container {
         Library pivot = arr.get(end);
  
         for(int i=start; i<end; i++){
-            if(arr.get(i).maxPoints<pivot.maxPoints){
+            if(arr.get(i).maxPoints>pivot.maxPoints){
                 Library temp= arr.get(start);
                 arr.set(start, arr.get(i));
                 arr.set(i,temp);
