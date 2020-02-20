@@ -24,7 +24,7 @@ public class HashCode2020 {
 
         try {
 
-            ArrayList<ArrayList<Integer>> librosBibliotecas = new ArrayList<ArrayList<Integer>>();
+            ArrayList<ArrayList<Book>> librosBibliotecas = new ArrayList<ArrayList<Book>>();
             
             
             File fichero = new File(args[0]);
@@ -44,32 +44,42 @@ public class HashCode2020 {
            int nDias = Integer.parseInt(aux[2]);
            
            //indice es el id, y el array tiene la puntuacion
-           ArrayList<Integer> puntuacionLibros = new ArrayList<Integer>(nLibros);
+           ArrayList<Book> puntuacionLibros = new ArrayList<Book>(nLibros);
            aux = entrada.nextLine().split(" ");
            
            for(int i = 0; i<nLibros;i++){
-               puntuacionLibros.add(Integer.parseInt(aux[i]));
+               puntuacionLibros.add(new Book(i,Integer.parseInt(aux[i])));
            }
            
-           ArrayList<ArrayList<Integer>> datosBiblioteca = new ArrayList<ArrayList<Integer>>(nBibliotecas);
+           ArrayList<Library> listaBibliotecas = new ArrayList<Library>(nBibliotecas);
+           int nLibrosBibliotecaAux;
+           int signUpAux;
+           int booksPerDayAux;
+           
+           ArrayList<Book> librosPorBiblioteca;
+           
            
            for(int i = 0; i<nBibliotecas;i++){
                aux = entrada.nextLine().split(" ");
-               ArrayList<Integer> arrayAuxiliar = new  ArrayList<Integer>(3);
-               for(int j=0;j<3;j++){
-                   arrayAuxiliar.add(Integer.parseInt(aux[j]));
-               }
-               datosBiblioteca.add(arrayAuxiliar);
-               arrayAuxiliar = new  ArrayList<Integer>(datosBiblioteca.get(i).get(0));
+               
+               nLibrosBibliotecaAux = Integer.parseInt(aux[0]);
+               signUpAux = Integer.parseInt(aux[1]);
+               booksPerDayAux = Integer.parseInt(aux[2]);
+               
+                
+               librosPorBiblioteca = new ArrayList<Book>(nLibrosBibliotecaAux);
                
                aux = entrada.nextLine().split(" ");
-               for(int j=0;j<datosBiblioteca.get(i).get(0);j++){
-                   arrayAuxiliar.add(Integer.parseInt(aux[j]));
+               for(int j=0;j<nLibrosBibliotecaAux;j++){
+                   librosPorBiblioteca.add(puntuacionLibros.get(Integer.parseInt(aux[j])));
                }
-               librosBibliotecas.add(arrayAuxiliar);
+               listaBibliotecas.add(new Library(i,signUpAux,booksPerDayAux,librosPorBiblioteca,nDias));
            }
            
            
+           
+           
+           Container master = new Container(listaBibliotecas,puntuacionLibros,nDias);
            
            
            
