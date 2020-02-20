@@ -10,20 +10,12 @@ package hashcode2020;
  * @author cgmr2
  */
 public class Book {
-    private int id;
-    private int score;
+    public int id;
+    public int score;
 
     public Book(int id, int score) {
         this.id = id;
         this.score = score;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public int getScore() {
-        return score;
     }
 
     
