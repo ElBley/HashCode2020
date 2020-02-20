@@ -77,6 +77,7 @@ public class Library {
     }
 
     public Long librosEnviar(int diasUtiles) {
+        
         return Math.min((long) diasUtiles * this.nBooksDay, this.books.size());
     }
 }

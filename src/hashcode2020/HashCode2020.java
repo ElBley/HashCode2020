@@ -28,7 +28,7 @@ public class HashCode2020 {
             
             
             File fichero = new File(args[0]);
-            File ficheroSalida = new File("c.out");
+            File ficheroSalida = new File("f.out");
 
             fw = new FileWriter(ficheroSalida);
             salida = new PrintWriter(fw);
